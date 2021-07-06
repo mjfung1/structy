@@ -1,3 +1,6 @@
+
+// time:  O(n)
+// space: O(n)
 const treeValueCountDFS = (root, target) => {
   // todo
   if (!root) return 0;
@@ -7,6 +10,8 @@ const treeValueCountDFS = (root, target) => {
 
 // ---------------------------------------- //
 
+// time:  O(n)
+// space: O(n)
 const treeValueCount = (root, target) => {
   // todo
   let count = 0;
@@ -21,12 +26,15 @@ const treeValueCount = (root, target) => {
   return count;
 };
 
-
+// ---------------------------------------- //
+ 
+// time:  O(n)
+// space: O(n)
 const treeValueCountBFS = (root, target) => {
   // todo
   let count = 0;
   if (root === null) return count;
-  const queue = [root];
+  const queue = [ root ];
 
   while (queue.length) {
     let node = queue.shift();
