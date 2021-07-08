@@ -1,5 +1,10 @@
 
 
+// n = number of nodes
+// e = number edges
+// time:  O(e)
+// space: O(n)
+
 const connectedComponentsCount = (graph) => {
   // todo
   let count = 0;
