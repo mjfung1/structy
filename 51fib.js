@@ -1,12 +1,13 @@
 
 
 // DP - memoization - recursion with cache
-const fib = (n, memo) => {
+// REMEMBER TO PUT CURLIES OBJECT IN MEMO!!!!!
+const fib = (n, memo = {}) => {
   // todo
   if (memo[n]) return memo[n];
   if (n <= 1) return n;
-
-  memo[n] = fib(n - 1, memo) + fib(n - 2, memo);
+  
+  memo[n] = fib(n-1, memo) + fib(n-2, memo);
   return memo[n];
 };
 
