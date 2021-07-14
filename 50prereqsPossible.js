@@ -13,7 +13,6 @@ const prereqsPossible = (numCourses, prereqs) => {
   for (const course in graph) {
     if (cycleDetector(course, graph, visiting, visited)) return false;
   }
-  console.log(visited);
   return true;
 };
 
