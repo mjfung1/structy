@@ -49,7 +49,24 @@ const _minChange = (amount, coins, memo={}) => {
   return min;
 };
 
+// ---------------------------------- //
+// tabulation
+const minChange = (amount, coins) => {
+  // todo
+  const tab = Array(amount + 1).fill(Infinity);
+  tab[0] = 0;
 
+  for (let coin of coins) {
+    for (let i = 1; i < tab.length; i++) {
+      if (coin <= i) {
+        // trick is to minus coin to get lowest amount needed
+        tab[i] = Math.min(tab[i], tab[i - coin] + 1);
+      }
+    }
+  }
+
+  return tab[amount] !== Infinity ? tab[amount] : -1;
+};
 
 
 
