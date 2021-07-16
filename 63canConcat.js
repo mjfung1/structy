@@ -21,3 +21,24 @@ const canConcat = (s, words, memo = {}) => {
   memo[s] = false;
   return false;
 };
+
+
+// tabulation
+
+const canConcat = (s, wordDict) => {
+  // todo
+  
+  const table = Array(s.length+1).fill(false);
+  table[0] = true;
+
+  for (let i = 0; i <= s.length; i++) {
+      if (!table[i]) continue;
+      for (const word of wordDict) {
+          let temp = s.slice(i, i + word.length)
+          if (word === temp) table[i+word.length] = true;
+      }
+  }
+
+  return table[s.length];
+  
+};
