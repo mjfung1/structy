@@ -7,6 +7,8 @@
 
 const nestingScore = (str) => {
   // todo
+  // why initialize with zero??
+  // bc if given an empty str we can return zero
   const stack = [0];
 
   for (let bracket of str) {
