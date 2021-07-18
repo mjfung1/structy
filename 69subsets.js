@@ -37,3 +37,33 @@ const subsets = (elements) => {
 
   return output;
 };
+
+
+// iteratively
+
+const subsets = (elements) => {
+  // todo
+  const queue = [[]];
+  
+  for (let ele of elements) {
+    for (let curr of [...queue]) {
+      queue.push([...curr, ele])
+    }
+  }
+  return queue;
+};
+
+const subsets = (elements) => {
+  // todo
+  const queue = [[]];
+  
+  for (let ele of elements) {
+    let size = queue.length
+    for (let curr of queue) {
+      if (!size) break;
+      queue.push([...curr, ele])
+      size--;
+    }
+  }
+  return queue;
+};
