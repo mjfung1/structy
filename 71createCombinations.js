@@ -1,4 +1,33 @@
 
+// n = length of items
+// k = target length
+// Time: ~O(n choose k)
+// Space: ~O(n choose k)
+
+const createCombinations = (items, k) => {
+  // todo
+
+  // if k === 0 then [[]] is only combination;
+  if (k === 0) return [[]];
+
+  // if there is less items than k => no combo can be made
+  if (items.length < k) return [];
+
+  const first = items[0];
+  const comboWithFirst = [];
+  // I expect this to return nested array so decrease k
+  for (const combo of createCombinations(items.slice(1), k - 1)) {
+    comboWithFirst.push([first, ...combo]);
+  }
+
+  // only decrease items length; so it can hit other base case
+  const comboWithoutFirst = createCombinations(items.slice(1), k);
+
+  return [...comboWithFirst, ...comboWithoutFirst];
+};
+
+
+// ------------------------------------------------ // 
 
 
 const createCombinations = (items, k) => {
