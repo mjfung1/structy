@@ -1,9 +1,22 @@
 
+// alvins way;
+
+const flipTree = (root) => {
+  if (root === null) return null;
+  const left = flipTree(root.left);
+  const right = flipTree(root.right);
+  root.right = left;
+  root.left = right;
+  return root;
+};
+
+
+
 // recursive
 
 const flipTree = (root) => {
   // todo
-  if (!root) return;
+  if (!root) return null;
   [root.left, root.right] = [root.right, root.left]
   flipTree(root.left);
   flipTree(root.right);
