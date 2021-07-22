@@ -10,10 +10,7 @@ const flipTree = (root) => {
   return root;
 };
 
-
-
 // recursive
-
 const flipTree = (root) => {
   // todo
   if (!root) return null;
@@ -22,7 +19,6 @@ const flipTree = (root) => {
   flipTree(root.right);
   return root;
 };
-
 
 // --------------------------------- //
 

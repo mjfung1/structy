@@ -1,5 +1,5 @@
 
-
+// recursive
 // n = number of nodes
 // time:  O(n)
 // space: O(n)
@@ -19,4 +19,24 @@ const leftyNodes = (root) => {
 
   traverse(root, 0);
   return array;
+};
+
+
+// ---------------------------- //
+// iterative
+const leftyNodes = (root) => {
+  // todo
+  if (!root) return [];
+  const queue = [[root, 0]];
+  const output = [];
+
+  while (queue.length) {
+    const [node, level] = queue.shift();
+    if (!output[level]) output[level] = node.val;
+
+    if (node.left) queue.push([node.left, level + 1]);
+    if (node.right) queue.push([node.right, level + 1]);
+  }
+
+  return output;
 };
