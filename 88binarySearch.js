@@ -25,7 +25,7 @@ const binarySearch = (numbers, target) => {
 // ------------------------------------------------- //
 
 // RECURSIVE  
-
+// hello from mac air
 const binarySearch = (numbers, target, left=0, right=numbers.length-1) => {
   if (left > right) return -1;
   // todo
