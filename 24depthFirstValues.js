@@ -1,7 +1,10 @@
 
 
+// n = number of nodes
+// time:  O(n)
+// space: O(n)
 
-
+// RECURSIVE
 const depthFirstValues = (root) => {
   // todo
   const output = [];
@@ -32,7 +35,7 @@ const depthFirstValues = (root) => {
 
 
 // ----------------------------------------- //
-
+// ITERATIVE
 const depthFirstValues = (root) => {
   // todo
   if (!root) return [];
