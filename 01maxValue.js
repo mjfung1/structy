@@ -1,7 +1,7 @@
 
 // n = length of array
-// Time: O(n)
-// Space: O(1)
+// time:  O(n)
+// space: O(1)
 
 const maxValue = (nums) => {
   // todo

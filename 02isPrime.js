@@ -1,7 +1,7 @@
 
 // n = input number
-// Time: O(square_root(n))
-// Space: O(1)
+// time:  O(square_root(n))
+// space: O(1)
 
 const isPrime = (n) => {
   // todo
