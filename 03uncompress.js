@@ -50,3 +50,30 @@ const uncompress = (s) => {
   }
   return output.join('');
 };
+
+// ------------------------------ // 
+
+const uncompress = (s) => {
+  // todo
+  let nums = new Set(['1','2','3','4','5','6','7','8','9','0'])
+  let i = 0;
+  let j = 0;
+
+  let word = '';
+  while (j < s.length) {
+    
+    while (nums.has(s[j])) j++;
+  
+    
+    let num = Number(s.slice(i, j));    
+    let letter = s[j];
+
+    word += letter.repeat(num);
+
+    j++;
+    i = j;
+  }
+
+  return word;
+};
+
