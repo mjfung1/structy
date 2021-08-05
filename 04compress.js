@@ -1,6 +1,9 @@
+
+// using two pointers
+
 // n = length of string
-// Time: O(n)
-// Space: O(n)
+// time:  O(n)
+// space: O(n)
 
 const compress = (s) => {
   let result = [];
@@ -46,5 +49,41 @@ const compress = (s) => {
   
   return output.join('');
 };
+
+
+
+// ------------------------------------- //
+// Using a stack;
+// time:  O(n);
+// space: O(n);
+const compress = (s) => {
+  // todo
+  const stack = [];
+  
+  for (let i = 0; i < s.length; i++) {
+    let letter = s[i];
+    
+    let last = stack[stack.length-1];
+    if (stack.length && letter === last[1]) {
+        last[0] += 1;
+    } else {
+      stack.push([1, letter]);
+    }
+  }
+  
+  let output = [];
+  
+  for (let [num, char] of stack) {
+    if (num === 1) {
+      output.push(char);
+    } else {
+      output.push(num, char);
+    }
+  }
+  
+  return output.join('');
+};
+
+
 
 
