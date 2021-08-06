@@ -45,6 +45,7 @@ const anagrams = (s1, s2) => {
   }
   
   for (let char of s2) {
+    // here freq[char] can be 0 || undefined => falsey vals; 
     if (!hash[char]) return false;
     hash[char]--;  
   }
