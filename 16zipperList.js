@@ -5,7 +5,7 @@
 
 // my implementation
 // time: O (n+m);
-// space: O (n+m);
+// space: O (1);
 
 class Node {
   constructor(val) {
