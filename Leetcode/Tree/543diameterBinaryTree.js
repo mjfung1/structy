@@ -1,7 +1,8 @@
 
 
 // 543. Diameter of Binary Tree
-
+// basically getting depth from both left and right. 
+// add them together for total diameter.
 var diameterOfBinaryTree = function(root) {
     let maxDiameter = 0;
     
