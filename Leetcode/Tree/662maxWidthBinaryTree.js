@@ -44,6 +44,10 @@ var widthOfBinaryTree = function(root) {
     let maxWidth = 0;
     let firstValues = [];
     
+    // why do we need this? 
+    // this handle the last test case where tree is really long one-sided;
+    // numbers goes to infinity so javascript cannot compute it;
+    // so we traverse until both roots are present;
     while (root.left && !root.right) root = root.left;
     while (root.right && !root.left) root = root.right;
     
