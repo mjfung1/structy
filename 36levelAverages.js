@@ -1,4 +1,44 @@
 
+// recursive
+// n = number of nodes
+// Time: O(n)
+// Space: O(n)
+
+const levelAverages = (root) => {
+  const levels = [];
+  fillLevels(root, levels, 0);
+  
+  // look at this cool way to pass in a function w/o args
+  return levels.map(getAvg);
+};
+
+const fillLevels = (root, levels, levelNum) => {
+  if (root === null) return;
+
+  if (levels.length === levelNum) {
+    levels[levelNum] = [root.val];
+  } else {
+    levels[levelNum].push(root.val);
+  }
+
+  fillLevels(root.left, levels, levelNum + 1);
+  fillLevels(root.right, levels, levelNum + 1);
+};
+
+const getAvg = (array) => {
+  let sum = 0;
+  for (let num of array) {
+    sum += num;
+  }
+  return sum / array.length;
+};
+
+
+// ------------------------------------------- //
+
+
+
+
 // time:  O(n);
 // space: O(n);
 

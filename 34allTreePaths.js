@@ -1,4 +1,23 @@
 
+const allTreePaths = (root) => {
+  // todo
+  // cannot have any path if no root
+  if (!root) return [];
+  // we want subarrays. so i can add root node to every subarray
+  if (!root.left && !root.right) return [ [root.val] ];
+  
+  let leftSubPaths = allTreePaths(root.left);
+
+  let rightSubPaths = allTreePaths(root.right);
+
+  const allPaths = [ ...leftSubPaths, ...rightSubPaths];
+  
+  return allPaths.map(subarr => [ root.val, ...subarr ])
+};
+
+// --------------------------------------- //
+
+
 // HELPER RECURSION
 
 const allTreePaths = (root) => {
