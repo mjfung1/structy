@@ -46,3 +46,21 @@ const treeValueCountBFS = (root, target) => {
 
   return count;
 };
+
+
+
+// --------------------------------------- //
+const treeValueCount = (root, target) => {
+  // todo
+  if (!root) return 0;
+
+  let left = treeValueCount(root.left, target);
+  let right = treeValueCount(root.right, target);
+  
+  if (root.val === target) {
+    return 1 + left + right;
+  } else {
+    return left + right;
+  }
+  
+};

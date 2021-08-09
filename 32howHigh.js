@@ -7,6 +7,12 @@ const howHigh = (node) => {
 };
 
 
+// COMPARE TO MAX DEPTH OF BINARY TREE; PRETTY SIMILAR CODE; DIFFERENCE IN BASE VALUE
+const maxDepth = (root) => {
+    if (!root) return 0;
+
+    return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+}
 
 // ------------------------------------------------- //
 
