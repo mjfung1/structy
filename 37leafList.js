@@ -1,3 +1,21 @@
+
+// recursion. no helper function;
+
+const leafList = (root) => {
+  // todo
+  if (!root) return [];
+  if (!root.left && !root.right) return [root.val];
+  
+  let left = leafList(root.left);
+  let right = leafList(root.right);
+  
+  return [...left, ...right]; 
+};
+
+
+
+
+
 // -------------------------------------- //
 // time:  O(n);
 // space: O(n);
