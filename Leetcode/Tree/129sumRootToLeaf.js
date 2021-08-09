@@ -11,6 +11,7 @@ var sumNumbers = function(root) {
     return stringNums.reduce((acc, red) => Number(acc) + Number(red));
 };
 
+// Collecting all paths. Good pattern to know!!!
 const getPaths = (root) => {
     if (!root) return [];
     if (!root.left && !root.right) return [ [root.val] ];
