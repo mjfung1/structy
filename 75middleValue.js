@@ -5,10 +5,10 @@
 
 const middleValue = (head) => {
   // todo
-  let fast = head;
-  let slow = head;
+  let fast = head;  // O(1)
+  let slow = head;  // O(1)
 
-  while (fast && fast.next) {
+  while (fast && fast.next) {  // O()
     fast = fast.next.next;
     slow = slow.next;
   }
