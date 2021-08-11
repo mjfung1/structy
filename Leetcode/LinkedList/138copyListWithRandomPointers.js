@@ -35,3 +35,19 @@ var copyRandomList = function(head) {
     
    return newHead.next;
 };
+
+
+// ------------------------------------------- //
+
+var copyRandomList = function(head, seen = new Map()) {
+    if (!head) return null;
+    if (seen.has(head)) return seen.get(head);
+    
+    let copyHead = new Node(head.val);
+    seen.set(head, copyHead);
+    
+    copyHead.next = copyRandomList(head.next, seen);
+    copyHead.random = copyRandomList(head.random, seen);
+    
+    return copyHead;
+};
