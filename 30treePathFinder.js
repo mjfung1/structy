@@ -1,3 +1,22 @@
+// BACKTRACKING
+const pathFinder = (root, target) => {
+  // todo
+  function dfs(root, target, path) {
+    if (!root) return false;
+    path.push(root.val);
+    if (root.val === target) return true;
+    let left = dfs(root.left, target, path);
+    let right = dfs(root.right, target, path);
+    if (left || right) return true;
+    path.pop();
+  }
+  
+  let path = [];
+  dfs(root, target, path);
+  return path.length > 0 ? path : null;
+};
+
+// ------------------------------------ //
 const pathFinder = (root, target) => {
   // todo
   const output = [];

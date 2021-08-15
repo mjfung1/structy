@@ -64,3 +64,27 @@ const allTreePaths = (root) => {
 
   return paths;
 };
+
+
+
+// ----------------------------------- //
+// BACKTRACKING. VERY INTUITIVE...
+
+const allTreePaths = (root) => {
+  // todo
+  const dfs = (root, path, paths) => {
+    if (!root) return;
+    path.push(root.val);
+    if (!root.left && !root.right) paths.push([...path]);
+    dfs(root.left, path, paths);
+    dfs(root.right, path, paths);
+    path.pop();
+    
+  }
+  const path = [];
+  const paths = [];
+  
+  dfs(root, path, paths);
+  
+  return paths;
+};
