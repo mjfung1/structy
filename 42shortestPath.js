@@ -6,17 +6,17 @@
 const shortestPath = (edges, nodeA, nodeB) => {
   const graph = buildGraph(edges);
   const visited = new Set(nodeA);
-  const queue = [[nodeA, 0]];
+  const queue = [[ nodeA, 0 ]];
 
   while (queue.length > 0) {
-    let [node, level] = queue.shift();
+    let [ node, level ] = queue.shift();
 
     if (node === nodeB) return level;
 
     for (let neighbor of graph[node]) {
       if (!visited.has(neighbor)) {
         visited.add(neighbor);
-        queue.push([neighbor, level + 1]);
+        queue.push([ neighbor, level + 1 ]);
       }
     }
   }
