@@ -27,6 +27,7 @@ const dfs = (row, col, grid, distance) => {
 
 
 // BFS
+// Count where gates are. and bfs from there to find shortest path
 // time/space: O(mn)
 const wallsAndGates = (rooms) => {
     let queue = [];
