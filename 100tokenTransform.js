@@ -24,6 +24,7 @@ const tokenTransform = (s, tokens) => {
       let value = tokens[key];
       // passing in a smaller subset of word s
       let evaluatedValue = tokenTransform(value, tokens);
+      // updating tokens key.  actually replacing its values
       tokens[key] = evaluatedValue;
       output.push(evaluatedValue);
       
