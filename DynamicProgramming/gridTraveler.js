@@ -8,6 +8,9 @@
 
 // Write a function 'gridTraveler(m, n)' that calculates this.
 
+// time: O(2^n+m); brute force
+// time: O(n * m); memoized
+// space: O(n+m);
 function gridTraveler(row, col, memo={}) {
     let key = row + ',' + col;
     if (key in memo) return memo[key];
@@ -21,7 +24,8 @@ function gridTraveler(row, col, memo={}) {
     return memo[key];
 }
 
+
 console.log(gridTraveler(1,1)) // 1
 console.log(gridTraveler(2,1)) // 1
-console.log(gridTraveler(1,2)) // 1
-console.log(gridTraveler(20,20)) // 2
+console.log(gridTraveler(2,3)) // 
+console.log(gridTraveler(20,20)) // 
