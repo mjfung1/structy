@@ -28,7 +28,8 @@ const sumPossible = (amount, numbers, memo = {}) => {
 // tabulation
 
 // n = amount
-// time: O(n);
+// m = numbers
+// time: O(m * n);
 // space: O(n);
 
 const sumPossible = (amount, numbers) => {
