@@ -1,5 +1,5 @@
 // n = amount;
-// time: O(n);
+// time: O(n * m);
 // space: O(n);
 
 const canSum = (amount, numbers) => {
