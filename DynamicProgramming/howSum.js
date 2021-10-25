@@ -9,9 +9,34 @@
 
 // m = target sum
 // n = numbers.length
-// time: O(n^m * n) brute
-// time: O(n^m) memoized
+
+// brute force
+// time: O(n^m * n) 
 // space: O(m)
+
+// memoized
+// time: O(n*m^2) 
+// space: O(m^2)
+// const howSum = (targetSum, numbers, memo={}) => {
+//     if (targetSum in memo) return memo[targetSum];
+//     if (targetSum === 0) return [];
+//     if (targetSum < 0) return null;
+
+//     for (let num of numbers) {
+//         let remainderSum = targetSum - num;
+//         let result = howSum(remainderSum, numbers, memo)
+//         // an empty array evaluates truthy
+//         if (result) {
+//             memo[targetSum] = [...result, num]
+//             return memo[targetSum];
+//         }
+//     }
+//     memo[targetSum] = null;
+//     return null;
+// };
+
+
+
 const howSum = (targetSum, numbers, memo={}) => {
     if (targetSum in memo) return memo[targetSum];
     if (targetSum === 0) return [];
