@@ -20,6 +20,8 @@ const canConstruct = (str, wordBank) => {
     for (let i = 0; i <= str.length + 1; i++) {
         if (table[i] === true) {
             for (let word of wordBank) {
+
+                // if the word matches the characters at positon i;
                 let tempWord = str.slice(i, i + word.length);
                 if (word === tempWord) table[i + word.length] = true;
             }
