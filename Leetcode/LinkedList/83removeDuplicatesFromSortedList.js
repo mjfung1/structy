@@ -14,3 +14,25 @@ var deleteDuplicates = function(head) {
     
     return head;
 };
+
+
+
+// --------------------------------------
+// different attempt
+var deleteDuplicates = function(head) {
+    let current = head;
+    let prev = head;
+    
+    while (current) {
+        
+        if (prev.val === current.val) {
+            prev.next = current.next;
+        } else {
+            prev = prev.next;
+        }
+        
+        current = current.next;
+    }
+    
+    return head;
+};
