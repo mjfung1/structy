@@ -7,3 +7,26 @@
 
 // If there are multiple combinations possible, you may return any single one.
 
+// m = targetSum
+// n = numbers length
+// time: O(m^2 * n)
+// space: O(m^2)
+
+const howSum = (targetSum, numbers) => {
+    const table = Array(targetSum + 1).fill(null);
+    table[0] = [];
+
+    for (let i = 0; i <= targetSum; i++) {
+        if (table[i]) {
+            for (let num of numbers) {
+                table[i + num] = [...table[i], num];
+            }
+        }
+    }
+    return table[targetSum];
+}
+
+console.log(howSum(7, [5, 3, 4, 7])) // [3,4] or [7];
+console.log(howSum(8, [2, 3, 5])) // [2, 2, 2, 2] or [3, 5];
+console.log(howSum(7, [2, 4])) // null;
+console.log(howSum(0, [2, 4])) // [];
