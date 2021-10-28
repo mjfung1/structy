@@ -9,6 +9,8 @@
 
 // Write a function 'gridTraveler(m,n)' that calculates this.
 
+// time: O(mn)
+// space: O(mn)
 const gridTraveler = (m, n) => {
     const table = Array(m + 1).fill().map(() => Array(n + 1).fill(0));
     table[1][1] = 1;
@@ -26,7 +28,7 @@ const gridTraveler = (m, n) => {
             }
         }
     }
-    
+
     return table[m][n];
 };
 
