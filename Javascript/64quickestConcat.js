@@ -1,4 +1,4 @@
-
+// memoization
 // s = length of string
 // w = # of words
 // time:  ~O(sw)
@@ -27,3 +27,32 @@ const quickestConcat = (s, words) => {
   return answer === Infinity ? -1 : answer;
 };
 
+
+
+// ------------------------------------
+// tabulation
+
+const quickestConcat = (s, words, memo={}) => {
+  // todo
+  let table = Array(s.length + 1).fill(-1);
+  table[0] = 0;
+  for (let i = 0; i <= s.length; i++) {
+    if (table[i] !== -1) {
+      let temp = s.slice(i);
+      
+      for (let word of words) {
+        if (temp.startsWith(word)) {
+        
+          if (table[i + word.length] === -1) {
+            table[i + word.length] = table[i] + 1;        
+          } else {
+            table[i + word.length] = Math.min(table[i] + 1, table[i + word.length]);
+          }
+        }
+      }
+    }
+  
+  }
+
+  return table[s.length];
+};
