@@ -38,7 +38,7 @@ const getDistance = (node, graph, distance) => {
 
 
 // ------------------------------
-// iterative. with path 
+// iterative. with path array
 const longestPath = (graph) => {
   // todo
   let queue = [];
