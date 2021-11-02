@@ -1,4 +1,4 @@
-
+// recursive
 // e = # edges
 // n = # nodes
 // Time: O(e)
@@ -35,3 +35,46 @@ const getDistance = (node, graph, distance) => {
   
   return distance[node];
 };
+
+
+// ------------------------------
+// iterative. with path 
+const longestPath = (graph) => {
+  // todo
+  let queue = [];
+  for (let node in graph) {
+    queue.push([node, 0, [node]]);
+  }
+  
+  let maxDistance = 0;
+  let path;
+  while (queue.length) {
+    let [ node, distance, arr ] = queue.shift();
+    
+    // maxDistance = Math.max(maxDistance, distance);
+    if (distance > maxDistance) {
+      maxDistance = distance;
+      path = arr;
+    }
+    
+    for (let neighbor of graph[node]) {
+      queue.push([ neighbor, distance + 1 , [...arr, neighbor]]);
+    }
+  }
+  
+  return [maxDistance, path];
+};
+
+
+const graph = {
+  a: ['c', 'b'],
+  b: ['c'],
+  c: [],
+  q: ['r'],
+  r: ['s', 'u', 't'],
+  s: ['t'],
+  t: ['u'],
+  u: []
+};
+
+longestPath(graph); // -> 4
