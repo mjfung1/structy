@@ -1,0 +1,17 @@
+
+// n = number of nodes
+// Time: O(n)
+// Space: O(1)
+
+const middleValue = (head) => {
+  // todo 
+  let slow = head;
+  let fast = head;
+  
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  
+  return slow.val;
+};
