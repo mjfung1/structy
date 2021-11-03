@@ -18,6 +18,23 @@ const linkedPalindrome = (head) => {
 
 // ------------------------------- //
 
+// THIS IS WRONG!!!!!
+// LINKED LIST ARE REFERENCES THUS IF YOU MAKE CHANGES IT WILL REFLECT;
+// IT PASSES STRUCTY'S LIMITED CASES;
+// WILL NOT PASS THE CASE BELOW;
+
+            // const a = new Node(3);
+            // const b = new Node(2);
+            // const c = new Node(1);
+            // const d = new Node(3);
+
+            // a.next = b;
+            // b.next = c;
+            // c.next = d;
+
+            // // 3 -> 2 -> 1 -> 3
+            // console.log(linkedPalindrome(a)); // false
+            
 
 // n = number of nodes
 // Time: O(n)
