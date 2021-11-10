@@ -15,3 +15,21 @@ var rob = function (nums, memo = new Map()) {
   memo.set(key, result);
   return result;
 };
+
+
+// --------------------------------------------------
+var rob = function(nums, i = 0, memo={}) {
+    if (i in memo) return memo[i];
+    if (i >= nums.length) return 0;
+    
+    let firstHouse = nums[i];
+    
+    // cannot rob adjacent house - skip 2
+    let robFirst = firstHouse + rob(nums, i + 2, memo);
+    
+    // can rob adjacent house - skip first
+    let skipFirst = rob(nums, i + 1, memo);
+    
+    memo[i] = Math.max(robFirst, skipFirst);
+    return memo[i];
+};
