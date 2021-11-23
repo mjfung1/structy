@@ -1,9 +1,9 @@
-
+package Java;
 
 // 200. Number of Islands
 
-class Solution {
-    public int numIslands(char[][] grid) {
+class numberOfIslands {
+    public int main(char[][] grid) {
         int amount = 0;
 
         for (int row = 0; row < grid.length; row++) {
