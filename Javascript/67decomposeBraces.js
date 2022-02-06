@@ -69,3 +69,36 @@ var decompressBraces = function (s) {
 
 
 
+// ------------------------------------
+
+const decompressBraces = (s) => {
+  // todo
+  let i = 0;
+  let numbers = '1234567890';
+  
+  const stack = [];
+  
+  while (i < s.length) {
+    
+    if (s[i] === '}') {
+      
+      let string = '';
+      
+      while (!numbers.includes(stack[stack.length - 1])) {
+        let item = stack.pop();
+        string = item + string;
+      }
+      
+      let amount = stack.pop();
+      let newString = string.repeat(amount);
+      stack.push(newString);
+      
+    } else if (s[i] !== '{') {
+      stack.push(s[i]);
+    }
+
+    i++;
+  }
+
+  return stack.join('');
+}; 
