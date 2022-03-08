@@ -36,3 +36,4 @@ const treeSum = (root) => {
   
   return sum;
 };
+   

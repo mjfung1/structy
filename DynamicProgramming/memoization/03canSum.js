@@ -9,6 +9,48 @@
 
 // You may assume that all input numbers are nonnegative.
 
+
+// 2nd review. 02-28-2022
+const canSum2 = (targetSum, numbers) => {
+    if (targetSum === 0) return true;
+    if (targetSum < 0) return false;
+
+    for (let num of numbers) {
+        if (canSum2(targetSum - num, numbers) === true) {
+            return true;
+        }
+    }
+
+    return false;
+};
+
+console.log('yo');
+console.log(canSum2(7, [2, 3])); // true
+console.log(canSum2(7, [5, 3, 4, 7])); // true
+console.log(canSum2(7, [2, 4])); // false
+console.log(canSum2(8, [2, 3, 5])); // true
+console.log(canSum2(300, [7, 14])); // false
+console.log(canSum2(300, [7, 10])); // true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // m = targetSum
 // n = array length
 // time: O(n^m); brute force
@@ -33,9 +75,9 @@ const canSum = (targetSum, numbers, memo={}) => {
     return false;
 };
 
-console.log(canSum(7, [2, 3])); // true
-console.log(canSum(7, [5, 3, 4, 7])); // true
-console.log(canSum(7, [2, 4])); // false
-console.log(canSum(8, [2, 3, 5])); // true
-console.log(canSum(300, [7, 14])); // false
-console.log(canSum(300, [7, 10])); // true
+// console.log(canSum(7, [2, 3])); // true
+// console.log(canSum(7, [5, 3, 4, 7])); // true
+// console.log(canSum(7, [2, 4])); // false
+// console.log(canSum(8, [2, 3, 5])); // true
+// console.log(canSum(300, [7, 14])); // false
+// console.log(canSum(300, [7, 10])); // true

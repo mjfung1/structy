@@ -8,6 +8,42 @@
 
 // Write a function 'gridTraveler(m, n)' that calculates this.
 
+
+// 2nd review. 02-28-2022
+const gridTraveler2 = (m, n, memo = {}) => {
+    let key = m + ',' + n;
+    if (key in memo) return memo[key];
+    if (m === 1 && n === 1) return 1;
+    if (m < 1 || n < 1) return 0;
+
+    let down = gridTraveler2(m - 1, n, memo);
+    let right = gridTraveler2(m, n - 1, memo);
+
+    memo[key] = down + right;
+    return memo[key];
+};
+
+
+console.log(gridTraveler2(1,1)) // 1
+console.log(gridTraveler2(2,1)) // 1
+console.log(gridTraveler2(2,3)) // 3
+console.log(gridTraveler2(3,3)) // 6
+console.log(gridTraveler2(20,20)) // 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // time: O(2^n+m); brute force
 // time: O(n * m); memoized
 // space: O(n+m);
@@ -25,7 +61,7 @@ function gridTraveler(row, col, memo={}) {
 }
 
 
-console.log(gridTraveler(1,1)) // 1
-console.log(gridTraveler(2,1)) // 1
-console.log(gridTraveler(2,3)) // 
-console.log(gridTraveler(20,20)) // 
+// console.log(gridTraveler(1,1)) // 1
+// console.log(gridTraveler(2,1)) // 1
+// console.log(gridTraveler(2,3)) // 
+// console.log(gridTraveler(20,20)) // 

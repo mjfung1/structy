@@ -27,6 +27,6 @@ const treeIncludes = (root, target) => {
   let left = treeIncludes(root.left, target);
   let right = treeIncludes(root.right, target);
   
-  return left || right;
+  return left || right; 
 };
 
