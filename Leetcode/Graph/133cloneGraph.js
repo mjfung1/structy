@@ -23,3 +23,17 @@ var cloneGraph = function(node, seen={}) {
     return copyNode;
     
 };
+
+
+
+// --------------------------
+// 03-08-1987
+var cloneGraph = function(node) {
+    if (!node) return null;
+    if (node.copy) return node.copy;
+    
+    node.copy = new Node(node.val);
+    node.copy.neighbors = node.neighbors.map(cloneGraph);
+    
+    return node.copy;
+};
