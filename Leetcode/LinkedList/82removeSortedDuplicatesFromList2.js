@@ -30,3 +30,29 @@ var deleteDuplicates = function(head) {
     
     return dummyHead.next;
 };
+
+// ------------------------------------
+// cleaner implementation from leetcode
+
+var deleteDuplicates = function(head) {
+    let sentinel = new ListNode(0, head);
+    let prev = sentinel;
+    let current = head;
+    
+    while (current) {
+        
+        if (current.next && current.val === current.next.val) {
+            while (current.next && current.val === current.next.val) {
+                current = current.next;
+            }
+            
+            prev.next = current.next;
+        } else {
+            prev = prev.next;
+        }
+        
+        current = current.next;
+    }
+    
+    return sentinel.next;
+};
