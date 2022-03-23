@@ -67,3 +67,34 @@ const subsets = (elements) => {
   }
   return queue;
 };
+
+
+// --------------------------------------
+
+var subsets = function(nums) {
+    const output = [ ];
+    
+    // add empty subset
+    output.push([]);
+    
+    for (let num of nums) {
+        const newSubsets = [];
+        
+        // iterate thru output first
+        for (let subArr of output) {
+            newSubsets.push( [...subArr, num ] );
+        }
+        
+        // then push subsets to output
+        // for (let subArr of newSubsets) {
+        //     output.push( subArr );
+        // }
+        
+        
+        // same as above
+        output.push( ...newSubsets );
+        
+    }
+    
+    return output;
+};
