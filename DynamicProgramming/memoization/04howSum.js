@@ -17,6 +17,9 @@
 // memoized
 // time: O(n*m^2) 
 // space: O(m^2)
+
+
+
 // const howSum = (targetSum, numbers, memo={}) => {
 //     if (targetSum in memo) return memo[targetSum];
 //     if (targetSum === 0) return [];
@@ -55,7 +58,7 @@ const howSum = (targetSum, numbers, memo={}) => {
     return null;
 };
 
-// console.log(howSum(7, [5, 3, 4, 7])) // [3,4] or [7];
+console.log(howSum(7, [5, 3, 4, 7])) // [3,4] or [7];
 // console.log(howSum(8, [2, 3, 5])) // [2, 2, 2, 2] or [3, 5];
 // console.log(howSum(7, [2, 4])) // null;
 // console.log(howSum(0, [2, 4])) // [];
