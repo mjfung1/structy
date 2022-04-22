@@ -66,8 +66,11 @@ var findAllRecipes = function(recipes, ingredients, supplies) {
             for (let recipe of graph[ingredient]) {
                 indegrees[recipe]--;
                 if (indegrees[recipe] === 0) {
-                    queue.push(recipe);
+                    
                     output.push(recipe);
+                    
+                    // push new item to supplies
+                    queue.push(recipe);
                 }
             }
         }
