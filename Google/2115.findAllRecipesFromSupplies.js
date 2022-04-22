@@ -33,3 +33,46 @@ const hasAllIngredients = (ingredients, set) => {
     
     return true;
 }
+
+
+
+// ------------------------------
+// topological sort. better complexity
+
+var findAllRecipes = function(recipes, ingredients, supplies) {
+    const graph = {};
+    const indegrees = {};
+    
+    for (let i = 0; i < ingredients.length; i++) {
+        let ingredientArr = ingredients[i];
+        for (let item of ingredientArr) {
+            if (!(item in graph)) graph[item] = [];
+            if (!(recipes[i] in indegrees)) indegrees[recipes[i]] = 0;
+            
+            // items that can make such recipe
+            // indegrees of recipe
+            graph[item].push(recipes[i]);
+            indegrees[recipes[i]]++;
+        }
+    }
+    
+    let queue = [ ...supplies ];
+    let output = [];
+    
+    while (queue.length) {
+        let ingredient = queue.shift();
+        
+        if ((ingredient in graph)) {
+            for (let recipe of graph[ingredient]) {
+                indegrees[recipe]--;
+                if (indegrees[recipe] === 0) {
+                    queue.push(recipe);
+                    output.push(recipe);
+                }
+            }
+        }
+    }
+    
+    return output;
+
+};
