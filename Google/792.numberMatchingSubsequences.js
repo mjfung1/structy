@@ -67,6 +67,8 @@ var numMatchingSubseq = function(s, words) {
         let size = hash[char].length;
         
         while (size--) {
+            // very important to use fifo. order matters.
+            // if use pop() - order messes up
             let word = hash[char].shift();
             // if get to this stage. means subsequence
             if (word.length === 1) {
