@@ -42,3 +42,49 @@ const isSubSequence = (word, target) => {
     
     
 };
+
+
+// using buckets
+var numMatchingSubseq = function(s, words) {
+    const hash = {};
+    for (let char of s) {
+        hash[char] = [];
+    }
+    // initialize first letter of each word of words and push to array;
+    for (let word of words) {
+        let firstChar = word[0];
+        if (firstChar in hash) {
+            hash[firstChar].push(word);
+            
+        }
+    }
+    
+    let output = 0;
+    
+    for (let char of s) {
+        
+        
+        let size = hash[char].length;
+        
+        while (size--) {
+            let word = hash[char].shift();
+            // if get to this stage. means subsequence
+            if (word.length === 1) {
+                output++;
+            } else {
+                
+                let char2 = word[1];
+                // keep reducing words until empty string
+                if (char2 in hash) {
+                    hash[char2].push(word.slice(1));
+                    
+                }
+            }
+        
+        }
+        
+    }
+    
+    return output;
+    
+};
