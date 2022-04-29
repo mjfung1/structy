@@ -2,6 +2,8 @@
 
 // 2096. Step-By-Step Directions From a Binary Tree Node to Another
 
+// build graph
+// use queue for bfs to find shortest path.
 var getDirections = function(root, startValue, destValue) {
     const graph = buildGraph(root);
     let visited = new Set();
@@ -56,4 +58,51 @@ const buildGraph = (root) => {
     }
     
     return graph;
+};
+
+
+// create pointer to parent. faster than creating graph on leetcode
+// then bfs to find shortest path
+
+var getDirections = function(root, startValue, destValue) {
+    
+    let start;
+    const dfs = (root) => {
+        
+        if (root.left) {
+            root.left.parent = root;
+            dfs(root.left);
+        }
+        
+        if (root.right) {
+            root.right.parent = root;
+            dfs(root.right);
+        }
+        
+        if (startValue === root.val) start = root;
+    };
+    
+    dfs(root);
+    
+    const queue = [ [start, ''] ];
+    const visited = new Set();
+    
+    while (queue.length) {
+        let [ node, direction ] = queue.shift();
+        
+        if (node.val === destValue) return direction;
+        
+        visited.add(node.val);
+        
+        if (node.left && !visited.has(node.left.val)) {
+            queue.push([node.left, direction + 'L']);
+        }
+        if (node.right && !visited.has(node.right.val)) {
+            queue.push([node.right, direction + 'R']);
+        }
+        if (node.parent && !visited.has(node.parent.val)) {
+            queue.push([node.parent, direction + 'U']);
+        }
+    }
+    
 };
